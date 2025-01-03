@@ -1,6 +1,7 @@
 /** @format */
 
-import "@/styles/main.scss";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import "../styles/main.scss";
 
 import { Public_Sans } from "next/font/google";
 
@@ -15,7 +16,10 @@ const publicSans = Public_Sans({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={publicSans.className}>{children}</body>
+      <body className={publicSans.className}>
+        <Sidebar />
+        {children}
+      </body>
     </html>
   );
 }

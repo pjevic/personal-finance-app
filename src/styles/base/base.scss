@@ -1,5 +1,7 @@
 /** @format */
 
+@use "../abstracts/variables.scss" as vars;
+
 *,
 *::before,
 *::after {
@@ -14,5 +16,5 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: $color-primary-beige-100;
+  background-color: vars.$color-primary-beige-100;
 }

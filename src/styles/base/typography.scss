@@ -1,7 +1,9 @@
 /** @format */
 
+@use "../abstracts/variables.scss" as variables;
+
 body {
-  color: $color-gray-900;
+  color: variables.$color-gray-900;
   font-size: 1.4rem;
   line-height: 1.5;
   font-weight: 400;
