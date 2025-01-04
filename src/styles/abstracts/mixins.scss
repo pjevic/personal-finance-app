@@ -1,0 +1,6 @@
+/** @format */
+
+@mixin box-rounded-right($radius: 16px) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
