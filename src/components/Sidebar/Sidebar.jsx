@@ -65,6 +65,7 @@ export default function Sidebar() {
             <li key={href}>
               <Link
                 href={href}
+                aria-label={alt}
                 className={`${pathname === href ? style.active : ""}`}
               >
                 <span className={style.line}></span>
