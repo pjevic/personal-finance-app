@@ -1,9 +1,10 @@
 /** @format */
 
-import Sidebar from "@/components/Sidebar/Sidebar";
-import "../styles/main.scss";
-
 import { Public_Sans } from "next/font/google";
+
+import Sidebar from "@/components/Sidebar/Sidebar";
+
+import "@/styles/main.scss";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
