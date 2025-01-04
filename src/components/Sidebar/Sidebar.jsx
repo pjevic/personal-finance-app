@@ -1,7 +1,9 @@
 /** @format */
 
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   House,
   ArrowsDownUp,
@@ -12,81 +14,81 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import Logo from "../Logo/Logo";
-
 import style from "./Sidebar.module.scss";
 
+const NAV_ITEMS = [
+  {
+    href: "/",
+    Icon: House,
+    label: "Overview",
+    alt: "Navigate to the main dashboard for an overview of your financial data",
+    iconWeight: "fill",
+  },
+  {
+    href: "/transactions",
+    Icon: ArrowsDownUp,
+    label: "Transactions",
+    alt: "View, filter, or manage your transactions efficiently",
+  },
+  {
+    href: "/budgets",
+    Icon: ChartDonut,
+    label: "Budgets",
+    alt: "Visualize budgets and monitor financial progress",
+    iconWeight: "fill",
+  },
+  {
+    href: "/pots",
+    Icon: TipJar,
+    label: "Pots",
+    alt: "Access and manage your financial savings pots",
+    iconWeight: "fill",
+  },
+  {
+    href: "/recurring-bills",
+    Icon: Receipt,
+    label: "Recurring bills",
+    alt: "Track and manage recurring bills and expenses",
+    iconWeight: "fill",
+  },
+];
+
 export default function Sidebar() {
-  const mirrored = true;
+  const pathname = usePathname();
 
   return (
     <aside className={style.sidebar}>
       <Logo />
       <nav>
         <ul>
-          <li>
-            <Link href="/">
-              <House
-                weight="fill"
-                size="2.4rem"
-                alt="Icon"
-                className={style.icon}
-              />
-              <span className={`${style.label} textPreset__3`}>Overview</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/transactions">
-              <ArrowsDownUp size="2.4rem" alt="Icon" className={style.icon} />
-              <span className={`${style.label} textPreset__3`}>
-                Transactions
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/budgets">
-              <ChartDonut
-                weight="fill"
-                size="2.4rem"
-                alt="Icon"
-                className={style.icon}
-              />
-              <span className={`${style.label} textPreset__3`}>Budgets</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/pots">
-              <TipJar
-                weight="fill"
-                size="2.4rem"
-                alt="Icon"
-                className={style.icon}
-              />
-              <span className={`${style.label} textPreset__3`}>Pots</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/recurring-bills">
-              <Receipt
-                weight="fill"
-                size="2.4rem"
-                alt="Icon"
-                className={style.icon}
-              />
-              <span className={`${style.label} textPreset__3`}>
-                Recurring bills
-              </span>
-            </Link>
-          </li>
+          {NAV_ITEMS.map(({ href, Icon, label, alt, iconWeight }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={`${pathname === href ? style.active : ""}`}
+              >
+                <span className={style.line}></span>
+                <Icon
+                  size="2.4rem"
+                  weight={iconWeight || "regular"}
+                  alt={alt}
+                  className={style.icon}
+                />
+                <span className={`${style.label} textPreset__3`}>{label}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
+        <button className={style.toggle}>
+          <ArrowFatLinesLeft
+            weight="fill"
+            size="2.4rem"
+            alt="Toggle the sidebar"
+            className={style.icon}
+          />
+          <span className={`${style.label} textPreset__3`}>Minimize Menu</span>
+        </button>
       </nav>
-      <ArrowFatLinesLeft
-        weight="fill"
-        size="2.4rem"
-        alt="Icon"
-        mirrored={mirrored}
-        className={style.icon}
-      />
-      <span className={`${style.label} textPreset__3`}>Minimize Menu</span>
     </aside>
   );
 }

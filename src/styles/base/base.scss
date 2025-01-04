@@ -18,3 +18,8 @@ body {
   box-sizing: border-box;
   background-color: var.$color-primary-beige-100;
 }
+
+button {
+  all: unset;
+  cursor: pointer;
+}
