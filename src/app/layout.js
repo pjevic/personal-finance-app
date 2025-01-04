@@ -10,8 +10,8 @@ const publicSans = Public_Sans({
   subsets: ["latin"],
   display: "swap",
   style: "normal",
-  weight: "400",
   variants: ["400", "700"],
+  weight: ["400", "700"],
 });
 
 export default function RootLayout({ children }) {

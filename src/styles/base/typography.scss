@@ -8,3 +8,43 @@ body {
   line-height: 1.5;
   font-weight: 400;
 }
+
+.textPreset {
+  font-weight: 400;
+
+  &__1 {
+    font-size: variables.$font-size-xxl;
+    line-height: variables.$line-height-tight;
+    font-weight: 700;
+  }
+
+  &__2 {
+    font-size: variables.$font-size-xl;
+    line-height: variables.$line-height-tight;
+    font-weight: 700;
+  }
+
+  &__3 {
+    font-size: variables.$font-size-l;
+    line-height: variables.$line-height-normal;
+    font-weight: 700;
+  }
+
+  &__4 {
+    font-size: variables.$font-size-m;
+    line-height: variables.$line-height-normal;
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
+  &__5 {
+    font-size: variables.$font-size-s;
+    line-height: variables.$line-height-normal;
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+}

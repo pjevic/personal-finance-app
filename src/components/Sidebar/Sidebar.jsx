@@ -31,13 +31,15 @@ export default function Sidebar() {
                 alt="Icon"
                 className={style.icon}
               />
-              <span className={style.label}>Overview</span>
+              <span className={`${style.label} textPreset__3`}>Overview</span>
             </Link>
           </li>
           <li>
             <Link href="/transactions">
               <ArrowsDownUp size="2.4rem" alt="Icon" className={style.icon} />
-              <span className={style.label}>Transactions</span>
+              <span className={`${style.label} textPreset__3`}>
+                Transactions
+              </span>
             </Link>
           </li>
           <li>
@@ -48,7 +50,7 @@ export default function Sidebar() {
                 alt="Icon"
                 className={style.icon}
               />
-              <span className={style.label}>Budgets</span>
+              <span className={`${style.label} textPreset__3`}>Budgets</span>
             </Link>
           </li>
           <li>
@@ -59,7 +61,7 @@ export default function Sidebar() {
                 alt="Icon"
                 className={style.icon}
               />
-              <span className={style.label}>Pots</span>
+              <span className={`${style.label} textPreset__3`}>Pots</span>
             </Link>
           </li>
           <li>
@@ -70,7 +72,9 @@ export default function Sidebar() {
                 alt="Icon"
                 className={style.icon}
               />
-              <span className={style.label}>Recurring bills</span>
+              <span className={`${style.label} textPreset__3`}>
+                Recurring bills
+              </span>
             </Link>
           </li>
         </ul>
@@ -82,7 +86,7 @@ export default function Sidebar() {
         mirrored={mirrored}
         className={style.icon}
       />
-      <span className={style.label}>Minimize Menu</span>
+      <span className={`${style.label} textPreset__3`}>Minimize Menu</span>
     </aside>
   );
 }
