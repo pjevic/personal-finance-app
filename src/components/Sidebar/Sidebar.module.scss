@@ -13,6 +13,19 @@
   display: flex;
   flex-direction: column;
 
+  &.collapsed {
+    width: 10rem;
+    padding-right: 1rem;
+
+    .label {
+      display: none;
+    }
+
+    .toggle {
+      justify-content: center;
+    }
+  }
+
   nav {
     padding: 2.4rem 0;
 
@@ -34,7 +47,7 @@
         a {
           text-decoration: none;
           color: variables.$color-gray-100;
-          padding: 20px 32px;
+          padding: 2rem 3.2rem;
           width: 100%;
           @include mix.box-rounded-right(1.6rem);
           transition: background-color 0.2s, color 0.2s;
@@ -47,6 +60,17 @@
   }
 }
 
+.line {
+  background-color: transparent;
+  transition: background-color 0.3s;
+
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 .icon {
   fill: variables.$color-gray-300;
   transition: fill 0.3s;
@@ -56,12 +80,6 @@
   font-size: 2rem;
   color: variables.$color-gray-300;
   padding-left: 2.4rem;
-}
-
-.toggle {
-  margin: 3.2rem;
-  display: flex;
-  align-items: center;
 }
 
 .active {
@@ -81,13 +99,8 @@
   }
 }
 
-.line {
-  background-color: transparent;
-  transition: background-color 0.3s;
-
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  top: 0;
-  left: 0;
+.toggle {
+  margin: 3.2rem;
+  display: flex;
+  align-items: center;
 }

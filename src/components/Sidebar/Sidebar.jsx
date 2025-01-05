@@ -15,6 +15,7 @@ import {
 
 import Logo from "../Logo/Logo";
 import style from "./Sidebar.module.scss";
+import { useState } from "react";
 
 const NAV_ITEMS = [
   {
@@ -55,10 +56,14 @@ const NAV_ITEMS = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => setIsCollapsed((prev) => !prev);
 
   return (
-    <aside className={style.sidebar}>
-      <Logo />
+    <aside className={`${style.sidebar} ${isCollapsed ? style.collapsed : ""}`}>
+      <Logo isCollapsed={isCollapsed} />
+
       <nav>
         <ul>
           {NAV_ITEMS.map(({ href, Icon, label, alt, iconWeight }) => (
@@ -75,19 +80,27 @@ export default function Sidebar() {
                   alt={alt}
                   className={style.icon}
                 />
-                <span className={`${style.label} textPreset__3`}>{label}</span>
+                {!isCollapsed && (
+                  <span className={`${style.label} textPreset__3`}>
+                    {label}
+                  </span>
+                )}
               </Link>
             </li>
           ))}
         </ul>
-        <button className={style.toggle}>
+        <button className={style.toggle} onClick={toggleSidebar}>
           <ArrowFatLinesLeft
             weight="fill"
             size="2.4rem"
             alt="Toggle the sidebar"
             className={style.icon}
           />
-          <span className={`${style.label} textPreset__3`}>Minimize Menu</span>
+          {!isCollapsed && (
+            <span className={`${style.label} textPreset__3`}>
+              Minimize Menu
+            </span>
+          )}
         </button>
       </nav>
     </aside>
