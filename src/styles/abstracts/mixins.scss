@@ -1,6 +1,37 @@
 /** @format */
 
+// Box-rounded-right mixin
 @mixin box-rounded-right($radius: 16px) {
   border-top-right-radius: $radius;
   border-bottom-right-radius: $radius;
+}
+
+// Transition utility mixin
+@mixin transition($properties, $duration: 0.2s, $timing: ease) {
+  transition: $properties $duration $timing;
+}
+
+// Flexbox utility mixin
+@mixin flex($direction: row, $align: center, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// Collapsed state utility mixin
+@mixin collapsed-state() {
+  width: 0;
+  opacity: 0;
+  transform: scale(0);
+  height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Absolute position mixin
+@mixin absolute-position() {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
