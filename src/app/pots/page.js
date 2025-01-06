@@ -1,7 +1,7 @@
 /** @format */
 
 function Page() {
-  return <div>POTS</div>;
+  return <div>Pots</div>;
 }
 
 export default Page;

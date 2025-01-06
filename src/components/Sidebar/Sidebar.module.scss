@@ -7,100 +7,155 @@
   background-color: variables.$color-gray-900;
   width: 30rem;
   height: 100dvh;
-  padding-right: 3.2rem;
   @include mix.box-rounded-right(1.6rem);
+  transition: width 0.3s ease;
 
   display: flex;
   flex-direction: column;
 
-  &.collapsed {
-    width: 10rem;
-    padding-right: 1rem;
-
-    .label {
-      display: none;
-    }
-
-    .toggle {
-      justify-content: center;
-    }
-  }
-
   nav {
-    padding: 2.4rem 0;
-
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-grow: 1;
 
     ul {
-      list-style: none;
-
       li {
-        margin-bottom: 4px;
-
         display: flex;
         align-items: center;
-        position: relative;
+
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
 
         a {
+          color: variables.$color-gray-300;
           text-decoration: none;
-          color: variables.$color-gray-100;
-          padding: 2rem 3.2rem;
-          width: 100%;
-          @include mix.box-rounded-right(1.6rem);
-          transition: background-color 0.2s, color 0.2s;
+          padding: 2rem 0;
+          margin-right: 3.2rem;
 
           display: flex;
           align-items: center;
+          position: relative;
+          width: 100%;
+
+          @include mix.box-rounded-right(1.6rem);
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          .line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+          }
+
+          .icon {
+            margin: 0 2rem 0 3rem;
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+
+          .label {
+            text-decoration: none;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.3s ease, width 0.3s ease, opacity 0.3s ease,
+              transform 0.3s ease;
+          }
+
+          &.active {
+            background-color: variables.$color-gray-100;
+
+            .line {
+              background-color: variables.$color-secondary-green;
+            }
+
+            .icon {
+              fill: variables.$color-secondary-green;
+            }
+
+            .label {
+              color: variables.$color-gray-900;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      color: variables.$color-gray-300;
+      margin-bottom: 5.8rem;
+      transition: color 0.3s ease, padding 0.3s ease;
+
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 2rem;
+        margin: 0 2rem 0 3rem;
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      span {
+        display: block;
+        transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease;
+
+        text-decoration: none;
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.3s ease, width 0.3s ease, opacity 0.3s ease,
+          transform 0.3s ease;
+
+        &.collapsed {
+          width: 0;
+          opacity: 0;
+          transform: scale(0);
+          overflow: hidden;
+          white-space: nowrap;
+          height: 0;
+        }
+
+        &:not(.collapsed) {
+          width: auto;
+          opacity: 1;
+          transform: scale(1);
         }
       }
     }
   }
-}
 
-.line {
-  background-color: transparent;
-  transition: background-color 0.3s;
+  &.collapsed {
+    width: 8.8rem;
 
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
+    nav {
+      ul {
+        li {
+          a {
+            .label {
+              width: 0;
+              opacity: 0;
+              transform: scale(0);
+              overflow: hidden;
+              white-space: nowrap;
+              height: 0;
+            }
+          }
+        }
+      }
 
-.icon {
-  fill: variables.$color-gray-300;
-  transition: fill 0.3s;
-}
-
-.label {
-  font-size: 2rem;
-  color: variables.$color-gray-300;
-  padding-left: 2.4rem;
-}
-
-.active {
-  background-color: variables.$color-gray-100;
-
-  .line {
-    background-color: variables.$color-secondary-green;
+      button {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
   }
-
-  svg {
-    fill: variables.$color-secondary-green;
-  }
-
-  .label {
-    color: variables.$color-gray-900;
-    transition: color 0.2s;
-  }
-}
-
-.toggle {
-  margin: 3.2rem;
-  display: flex;
-  align-items: center;
 }

@@ -1,7 +1,7 @@
 /** @format */
 
 function Page() {
-  return <div>BUDGETS</div>;
+  return <div>Budgets</div>;
 }
 
 export default Page;

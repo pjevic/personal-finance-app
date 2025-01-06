@@ -80,22 +80,20 @@ export default function Sidebar() {
                   alt={alt}
                   className={style.icon}
                 />
-                {!isCollapsed && (
-                  <span className={`${style.label} textPreset__3`}>
-                    {label}
-                  </span>
-                )}
+
+                <span className={`${style.label} textPreset__3`}>{label}</span>
               </Link>
             </li>
           ))}
         </ul>
-        <button className={style.toggle} onClick={toggleSidebar}>
+
+        <button onClick={toggleSidebar}>
           <ArrowFatLinesLeft
             weight="fill"
             size="2.4rem"
             alt="Toggle the sidebar"
-            className={style.icon}
           />
+
           {!isCollapsed && (
             <span className={`${style.label} textPreset__3`}>
               Minimize Menu
