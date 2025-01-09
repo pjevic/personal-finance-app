@@ -5,12 +5,12 @@
 
 .sidebar {
   background-color: variables.$color-gray-900;
-  flex: 0 0 30rem;
   height: 100dvh;
   @include mix.box-rounded-right(1.6rem);
   @include mix.transition(width, 0.3s, ease);
 
   @include mix.flex(column, null, null);
+  flex: 0 0 30rem;
 
   nav {
     flex-grow: 1;
@@ -140,13 +140,10 @@
     nav {
       ul {
         padding-top: 1rem;
+        padding: 1rem 4rem 0 4rem;
 
-        // @include mix.flex(row, null, space-around);
-
+        @include mix.flex(row, null, space-between);
         gap: 1rem;
-
-        display: flex;
-        justify-content: space-evenly;
 
         li {
           &:not(:last-child) {
@@ -186,6 +183,31 @@
 
       button {
         display: none;
+      }
+    }
+  }
+
+  @include mix.respond(phone) {
+    flex: 0 0 5.2rem;
+    nav {
+      ul {
+        padding: 1rem 1.6rem 0 1.6rem;
+        gap: 0rem;
+
+        li {
+          a {
+            height: 4.4rem;
+            width: 6.86rem;
+
+            .label {
+              display: none;
+            }
+
+            .line {
+              top: 4rem;
+            }
+          }
+        }
       }
     }
   }
