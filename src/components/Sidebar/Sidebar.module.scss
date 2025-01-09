@@ -139,17 +139,16 @@
 
     nav {
       ul {
-        @include mix.flex(row, center, space-around);
+        @include mix.flex(row, null, space-around);
+        padding-top: 1rem;
 
         li {
           &:not(:last-child) {
             margin-bottom: 0px;
           }
 
-          padding-top: 1rem;
-
           a {
-            @include mix.flex(column, _, _);
+            @include mix.flex(column, null, space-between);
             @include mix.box-rounded-top(16px);
 
             position: relative;
@@ -163,11 +162,12 @@
 
             .label {
               order: 2;
+              @include mix.textPreset(5, true);
             }
 
             .line {
-              position: fi;
-              top: 7rem;
+              position: absolute;
+              top: 6rem;
               left: 0px;
               height: 4px;
               width: 100%;
