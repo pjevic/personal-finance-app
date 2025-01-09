@@ -19,9 +19,11 @@ import style from "./layout.module.scss";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${publicSans.className} ${style.layout}`}>
-        <Sidebar />
-        {children}
+      <body className={`${publicSans.className}`}>
+        <div className={style.layout}>
+          <Sidebar />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

@@ -5,12 +5,12 @@
 
 .sidebar {
   background-color: variables.$color-gray-900;
-  width: 30rem;
+  flex: 0 0 30rem;
   height: 100dvh;
   @include mix.box-rounded-right(1.6rem);
   @include mix.transition(width, 0.3s, ease);
 
-  @include mix.flex(column, _, _);
+  @include mix.flex(column, null, null);
 
   nav {
     flex-grow: 1;
@@ -80,7 +80,7 @@
       margin-bottom: 5.8rem;
       @include mix.transition(all, 0.2s, ease);
 
-      @include mix.flex(row, center, _);
+      @include mix.flex(row, center, null);
 
       svg {
         width: 2.4rem;
@@ -133,14 +133,20 @@
 
   @include mix.respond(tab-port) {
     width: 100%;
-    height: 7.4rem;
+    flex: 0 0 7.4rem;
 
     border-radius: 0;
 
     nav {
       ul {
-        @include mix.flex(row, null, space-around);
         padding-top: 1rem;
+
+        // @include mix.flex(row, null, space-around);
+
+        gap: 1rem;
+
+        display: flex;
+        justify-content: space-evenly;
 
         li {
           &:not(:last-child) {
@@ -149,15 +155,17 @@
 
           a {
             @include mix.flex(column, null, space-between);
-            @include mix.box-rounded-top(16px);
-
+            @include mix.box-rounded-top(1rem);
+            margin-right: 0rem;
             position: relative;
 
             height: 6.6rem;
+            width: 10.4rem;
             padding: 1rem;
 
             .icon {
               order: 1;
+              margin: 0;
             }
 
             .label {
@@ -167,7 +175,7 @@
 
             .line {
               position: absolute;
-              top: 6rem;
+              top: 6.2rem;
               left: 0px;
               height: 4px;
               width: 100%;

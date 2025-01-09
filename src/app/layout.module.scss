@@ -4,6 +4,13 @@
 
 .layout {
   display: flex;
+  height: 100dvh;
+  overflow: hidden;
+
+  main {
+    flex: 1;
+    overflow-y: hidden;
+  }
 
   @include mix.respond(tab-port) {
     flex-direction: column-reverse;
