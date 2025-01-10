@@ -1,0 +1,52 @@
+/** @format */
+
+@use "../styles/abstracts/mixins.scss" as mix;
+
+.overview {
+  padding: 3.2rem 4rem;
+  max-width: 114rem;
+  margin: 0 auto;
+
+  .heading {
+    @include mix.textPreset(1);
+
+    margin-bottom: 3.2rem;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.4rem;
+
+    .balance {
+      grid-column: 1/5;
+    }
+
+    .income {
+      grid-column: 5/9;
+    }
+
+    .expensses {
+      grid-column: 9/-1;
+    }
+
+    .pots {
+      background-color: blanchedalmond;
+      grid-column: 1/8;
+    }
+
+    .budgets {
+      background-color: burlywood;
+      grid-column: 8/-1;
+    }
+
+    .transactions {
+      background-color: cadetblue;
+      grid-column: 1/8;
+    }
+
+    .bills {
+      background-color: cornsilk;
+      grid-column: 8/-1;
+    }
+  }
+}

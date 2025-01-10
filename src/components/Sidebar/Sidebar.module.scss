@@ -110,12 +110,13 @@
   }
 
   &.collapsed {
-    width: 8.8rem;
+    flex-basis: 8.8rem;
 
     nav {
       ul {
         li {
           a {
+            margin-right: 1.6rem;
             .label {
               @include mix.collapsed-state();
             }

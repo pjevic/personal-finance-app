@@ -1,0 +1,30 @@
+/** @format */
+
+@use "../styles/abstracts/mixins.scss" as mix;
+@use "../styles/abstracts/variables.scss" as var;
+
+.box {
+  padding: 2.4rem;
+  border-radius: 1.2rem;
+  background-color: var.$color-white;
+  color: var.$color-gray-900;
+
+  .title {
+    @include mix.textPreset(4);
+    margin-bottom: 1.2rem;
+    color: var.$color-gray-500;
+  }
+
+  .sum {
+    @include mix.textPreset(1);
+  }
+
+  &.focus {
+    background-color: var.$color-gray-900;
+    color: var.$color-white;
+
+    .title {
+      color: var.$color-white;
+    }
+  }
+}
