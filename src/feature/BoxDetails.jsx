@@ -1,7 +1,6 @@
 /** @format */
 
 import Link from "next/link";
-
 import { CaretDown } from "@phosphor-icons/react/dist/ssr";
 
 import style from "./BoxDetails.module.scss";

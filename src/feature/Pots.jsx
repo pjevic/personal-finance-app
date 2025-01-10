@@ -2,6 +2,7 @@
 
 import { TipJar } from "@phosphor-icons/react/dist/ssr";
 import { formatToDollars } from "@/utils/helpers";
+
 import InfoItem from "@/components/InfoItem/InfoItem";
 import style from "./Pots.module.scss";
 
@@ -22,7 +23,12 @@ function Pots({ pots }) {
 
       <div className={style.details}>
         {pots.slice(0, 4).map((pot) => (
-          <InfoItem key={pot.name} pot={pot} />
+          <InfoItem
+            key={pot.name}
+            name={pot.name}
+            color={pot.theme}
+            total={pot.total}
+          />
         ))}
       </div>
     </div>

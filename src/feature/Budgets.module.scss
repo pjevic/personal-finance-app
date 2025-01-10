@@ -1,0 +1,46 @@
+/** @format */
+
+@use "../styles/abstracts/mixins.scss" as mix;
+
+.container {
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: 24.8rem 1fr;
+  gap: 1.6rem;
+
+  justify-items: center;
+  align-items: center;
+
+  .pieChartWrapper {
+    position: relative;
+    width: 24rem;
+    height: 24rem;
+    margin: 1rem 0;
+  }
+
+  .circleCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    @include mix.flex(column, center, null);
+
+    .sum {
+      @include mix.textPreset(1);
+      margin-bottom: 0.8rem;
+    }
+
+    .text {
+      @include mix.textPreset(5);
+    }
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
