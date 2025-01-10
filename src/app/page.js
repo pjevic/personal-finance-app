@@ -1,6 +1,7 @@
 /** @format */
 
 import Box from "@/feature/Box";
+import BoxDetails from "@/feature/BoxDetails";
 
 import { balance } from "../data/data.json";
 
@@ -10,6 +11,7 @@ export default function Page() {
   return (
     <div className={style.overview}>
       <h1 className={style.heading}>Overview</h1>
+
       <div className={style.container}>
         <div className={style.balance}>
           <Box title="Current Balance" sum={balance.current} focus={true} />
@@ -21,10 +23,19 @@ export default function Page() {
           <Box title="Expensses" sum={balance.expenses} />
         </div>
 
-        <div className={style.pots}>Pots</div>
-        <div className={style.budgets}>Budgets</div>
-        <div className={style.transactions}>Transactions</div>
-        <div className={style.bills}>Bills</div>
+        <div className={style.pots}>
+          <BoxDetails title="Pots" to="/pots" />
+        </div>
+
+        <div className={style.budgets}>
+          <BoxDetails title="Budgets" to="/budgets" />
+        </div>
+        <div className={style.transactions}>
+          <BoxDetails title="Transactions" link="View All" to="/transactions" />
+        </div>
+        <div className={style.bills}>
+          <BoxDetails title="Recurring Bills" to="/recurring-bills" />
+        </div>
       </div>
     </div>
   );

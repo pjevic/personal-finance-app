@@ -19,6 +19,12 @@ body {
   background-color: var.$color-primary-beige-100;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 button {
   all: unset;
   cursor: pointer;
