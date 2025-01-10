@@ -1,0 +1,84 @@
+/** @format */
+
+@use "../styles/abstracts/variables.scss" as var;
+@use "../styles/abstracts/mixins.scss" as mix;
+
+.container {
+  width: 100%;
+
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  .total {
+    background-color: var.$color-primary-beige-100;
+    border-radius: 1.2rem;
+    padding: 1.6rem;
+
+    display: flex;
+    gap: 1.6rem;
+
+    .icon {
+      fill: var.$color-secondary-green;
+      align-self: center;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+
+      span {
+        color: var.$color-gray-500;
+        @include mix.textPreset(4);
+      }
+
+      .totalSaved {
+        color: var.$color-gray-900;
+        @include mix.textPreset(1);
+      }
+    }
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+
+    .detail {
+      display: grid;
+      grid-template-columns: 4px 1fr;
+      gap: 1.6rem;
+
+      &:nth-child(1) {
+        order: 1;
+      }
+      &:nth-child(2) {
+        order: 3;
+      }
+      &:nth-child(3) {
+        order: 2;
+      }
+      &:nth-child(4) {
+        order: 4;
+      }
+
+      .line {
+        width: 4px;
+        height: 100%;
+        border-radius: 8px;
+      }
+      .name {
+        @include mix.textPreset(5);
+        color: var.$color-gray-500;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .sum {
+        @include mix.textPreset(4, true);
+      }
+    }
+  }
+}
