@@ -18,6 +18,7 @@
 
     .link {
       @include mix.flex();
+      @include mix.textPreset(4);
       color: var.$color-gray-500;
 
       .icon {

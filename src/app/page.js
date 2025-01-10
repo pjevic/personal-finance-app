@@ -3,8 +3,9 @@
 import Box from "@/feature/Box";
 import BoxDetails from "@/feature/BoxDetails";
 import Pots from "@/feature/Pots";
+import Budgets from "@/feature/Budgets";
 
-import { balance, pots } from "../data/data.json";
+import { balance, pots, budgets } from "../data/data.json";
 
 import style from "./page.module.scss";
 
@@ -31,8 +32,11 @@ export default function Page() {
         </div>
 
         <div className={style.budgets}>
-          <BoxDetails title="Budgets" to="/budgets" />
+          <BoxDetails title="Budgets" to="/budgets">
+            <Budgets budgets={budgets} />
+          </BoxDetails>
         </div>
+
         <div className={style.transactions}>
           <BoxDetails title="Transactions" link="View All" to="/transactions" />
         </div>
