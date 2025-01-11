@@ -42,6 +42,10 @@
     .transactions {
       grid-column: 1/8;
       grid-row: span 2;
+
+      .transactionsBox {
+        margin-top: 1.2rem;
+      }
     }
 
     .bills {

@@ -4,8 +4,9 @@ import Box from "@/feature/overview/Box";
 import BoxDetails from "@/feature/overview/BoxDetails";
 import Pots from "@/feature/overview/Pots";
 import Budgets from "@/feature/overview/Budgets";
+import TransactionItem from "@/feature/overview/TransactionItem";
 
-import { balance, pots, budgets } from "../data/data.json";
+import { balance, pots, budgets, transactions } from "../data/data.json";
 
 import style from "./page.module.scss";
 
@@ -38,8 +39,21 @@ export default function Page() {
         </div>
 
         <div className={style.transactions}>
-          <BoxDetails title="Transactions" link="View All" to="/transactions" />
+          <BoxDetails title="Transactions" link="View All" to="/transactions">
+            <div className={style.transactionsBox}>
+              {transactions.slice(0, 5).map((transaction) => (
+                <TransactionItem
+                  key={transaction.date}
+                  avatar={transaction.avatar}
+                  name={transaction.name}
+                  amount={transaction.amount}
+                  dateString={transaction.date}
+                />
+              ))}
+            </div>
+          </BoxDetails>
         </div>
+
         <div className={style.bills}>
           <BoxDetails title="Recurring Bills" to="/recurring-bills" />
         </div>
