@@ -1,6 +1,6 @@
 /** @format */
 
-import { formatToDollars } from "../utils/helpers";
+import { formatToDollars } from "../../utils/helpers";
 
 import style from "./Box.module.scss";
 

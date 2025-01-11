@@ -1,9 +1,9 @@
 /** @format */
 
-import Box from "@/feature/Box";
-import BoxDetails from "@/feature/BoxDetails";
-import Pots from "@/feature/Pots";
-import Budgets from "@/feature/Budgets";
+import Box from "@/feature/overview/Box";
+import BoxDetails from "@/feature/overview/BoxDetails";
+import Pots from "@/feature/overview/Pots";
+import Budgets from "@/feature/overview/Budgets";
 
 import { balance, pots, budgets } from "../data/data.json";
 
