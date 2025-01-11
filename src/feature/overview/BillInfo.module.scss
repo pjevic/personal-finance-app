@@ -1,0 +1,47 @@
+/** @format */
+
+@use "../../styles/abstracts/variables.scss" as var;
+@use "../../styles/abstracts/mixins.scss" as mix;
+
+.containerMain {
+  position: relative;
+
+  z-index: 200;
+
+  &:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
+
+  .containerSub {
+    background-color: var.$color-primary-beige-100;
+    padding: 2.6rem 1.6rem;
+    border-radius: 0.8rem;
+
+    margin-left: 0.4rem;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .type {
+      @include mix.textPreset(4);
+      color: var.$color-gray-500;
+    }
+
+    .value {
+      @include mix.textPreset(4, true);
+    }
+
+    .line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 98%;
+      border-radius: 0.8rem;
+      z-index: -10;
+      transform: translateY(1px);
+    }
+  }
+}

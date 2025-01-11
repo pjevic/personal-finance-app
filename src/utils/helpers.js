@@ -43,3 +43,53 @@ export const formatDate = (dateString) => {
     year: "numeric",
   }).format(date);
 };
+
+export const formatDay = (dayString) => {
+  const day = parseInt(dayString, 10);
+  const suffixes = { 11: "th", 12: "th", 13: "th", 1: "st", 2: "nd", 3: "rd" };
+  const lastDigit = day % 10;
+
+  if (suffixes[day]) return `${day}${suffixes[day]}`;
+  return `${day}${suffixes[lastDigit] || "th"}`;
+};
+
+export const getNext14Days = () => {
+  const days = [];
+  const today = new Date();
+
+  for (let i = 0; i <= 14; i++) {
+    const tempDate = new Date(today);
+    tempDate.setDate(today.getDate() + i);
+    days.push(tempDate.getDate());
+  }
+
+  return days;
+};
+
+export const getStatus = (day) => {
+  const next14Days = getNext14Days();
+  const today = new Date().getDate();
+
+  if (next14Days.includes(day)) return "soon";
+  if (today >= day) return "paid";
+  return "";
+};
+
+export const getRecurringBills = (transactions) => {
+  return transactions
+    .filter(({ recurring }) => recurring)
+    .map((bill) => {
+      const date = new Date(bill.date);
+      const day = date.getDate();
+
+      const dueDate = new Date(date);
+      dueDate.setDate(date.getDate() + 14);
+
+      return {
+        ...bill,
+        due: `Monthly-${formatDay(day)}`,
+        dueDate: dueDate.toISOString(),
+        status: getStatus(day),
+      };
+    });
+};

@@ -26,7 +26,7 @@
       grid-column: 5/9;
     }
 
-    .expensses {
+    .expenses {
       grid-column: 9/-1;
     }
 
@@ -41,7 +41,7 @@
 
     .transactions {
       grid-column: 1/8;
-      grid-row: span 2;
+      grid-row: span 3;
 
       .transactionsBox {
         margin-top: 1.2rem;
@@ -50,6 +50,10 @@
 
     .bills {
       grid-column: 8/-1;
+
+      .billsBox {
+        margin-top: 3.2rem;
+      }
     }
   }
 }
