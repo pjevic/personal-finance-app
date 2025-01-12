@@ -27,4 +27,8 @@
       }
     }
   }
+
+  @include mix.respond(phone) {
+    padding: 2.4rem 2rem;
+  }
 }

@@ -15,22 +15,30 @@
 
     margin-bottom: 3.2rem;
   }
+
   .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(4, auto);
     gap: 2.4rem;
 
-    .balance {
-      grid-column: 1/5;
-    }
+    .boxes {
+      grid-row: 1/2;
+      grid-column: 1/-1;
+      width: 100%;
+      display: flex;
+      gap: 2.4rem;
+      .balance {
+        flex-grow: 1;
+      }
 
-    .income {
-      grid-column: 5/9;
-    }
+      .income {
+        flex-grow: 1;
+      }
 
-    .expenses {
-      grid-column: 9/-1;
+      .expenses {
+        flex-grow: 1;
+      }
     }
 
     .pots {
@@ -56,6 +64,58 @@
 
       .billsBox {
         margin-top: 3.2rem;
+      }
+    }
+  }
+
+  @include mix.respond(tab-port) {
+    padding-bottom: 6.2rem;
+
+    .container {
+      grid-template-rows: repeat(4, auto);
+
+      .pots {
+        grid-column: 1/-1;
+      }
+
+      .budgets {
+        grid-column: 1/-1;
+      }
+
+      .transactions {
+        grid-column: 1/-1;
+        grid-row: 3/4;
+      }
+
+      .bills {
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  @include mix.respond(phone) {
+    padding: 2.4rem 1.6rem;
+
+    .container {
+      gap: 1.6rem;
+
+      .boxes {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .pots {
+        grid-row: 2/3;
+      }
+
+      .budgets {
+      }
+
+      .transactions {
+        grid-row: 3/4;
+      }
+
+      .bills {
       }
     }
   }

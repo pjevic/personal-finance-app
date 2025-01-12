@@ -47,4 +47,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
   }
+
+  @include mix.respond(tab-port) {
+    grid-template-columns: 40% 60%;
+  }
+
+  @include mix.respond(phone) {
+    grid-template-columns: 1fr;
+  }
 }

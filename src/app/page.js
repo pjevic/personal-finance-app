@@ -35,14 +35,16 @@ export default function Page() {
       <h1 className={style.heading}>Overview</h1>
 
       <div className={style.container}>
-        <div className={style.balance}>
-          <Box title="Current Balance" sum={balance.current} focus={true} />
-        </div>
-        <div className={style.income}>
-          <Box title="Income" sum={balance.income} />
-        </div>
-        <div className={style.expenses}>
-          <Box title="Expenses" sum={balance.expenses} />
+        <div className={style.boxes}>
+          <div className={style.balance}>
+            <Box title="Current Balance" sum={balance.current} focus={true} />
+          </div>
+          <div className={style.income}>
+            <Box title="Income" sum={balance.income} />
+          </div>
+          <div className={style.expenses}>
+            <Box title="Expenses" sum={balance.expenses} />
+          </div>
         </div>
 
         <div className={style.pots}>

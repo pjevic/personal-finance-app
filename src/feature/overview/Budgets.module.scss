@@ -43,4 +43,21 @@
     flex-direction: column;
     gap: 1.6rem;
   }
+
+  @include mix.respond(tab-port) {
+    grid-template-columns: 1fr 20%;
+  }
+
+  @include mix.respond(phone) {
+    grid-template-columns: 1fr;
+
+    .legend {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .legend > * {
+      flex: 0 0 47%;
+    }
+  }
 }

@@ -24,6 +24,10 @@
     align-items: center;
     justify-content: space-between;
 
+    @include mix.respond(phone) {
+      padding: 2rem 1.6rem;
+    }
+
     .type {
       @include mix.textPreset(4);
       color: var.$color-gray-500;
