@@ -1,7 +1,5 @@
 /** @format */
 
-"use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -15,7 +13,6 @@ import {
 
 import Logo from "../Logo/Logo";
 import style from "./Sidebar.module.scss";
-import { useState } from "react";
 
 const NAV_ITEMS = [
   {
@@ -54,11 +51,8 @@ const NAV_ITEMS = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isCollapsed, toggleSidebar }) {
   const pathname = usePathname();
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const toggleSidebar = () => setIsCollapsed((prev) => !prev);
 
   return (
     <aside className={`${style.sidebar} ${isCollapsed ? style.collapsed : ""}`}>

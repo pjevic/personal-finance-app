@@ -4,16 +4,28 @@
 
 .layout {
   display: flex;
-  height: 100dvh;
-  overflow: hidden;
+  min-height: 100dvh;
+
+  &.collapsed {
+    width: 30rem;
+  }
 
   main {
     flex: 1;
-    overflow-y: hidden;
+    margin-left: 22rem;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+
+    &.collapsed {
+      margin-left: 8rem;
+    }
   }
 
   @include mix.respond(tab-port) {
     flex-direction: column-reverse;
-    height: 100dvh;
+
+    main {
+      margin-left: 0;
+    }
   }
 }
