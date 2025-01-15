@@ -1,0 +1,14 @@
+/** @format */
+
+@use "../../styles/abstracts/mixins.scss" as mix;
+@use "../../styles/abstracts/variables.scss" as var;
+
+.transactions {
+  @include mix.page-style();
+
+  &__heading {
+    @include mix.textPreset(1);
+    color: var.$color-gray-900;
+    margin-bottom: 3.2rem;
+  }
+}

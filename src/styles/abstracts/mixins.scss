@@ -2,6 +2,12 @@
 
 @use "../abstracts/variables.scss" as variables;
 
+@mixin page-style() {
+  padding: 3.2rem 4rem;
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
 // Mixin for text presets
 @mixin textPreset($preset, $bold: false) {
   @if $preset == 1 {

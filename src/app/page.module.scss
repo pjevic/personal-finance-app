@@ -3,12 +3,7 @@
 @use "../styles/abstracts/mixins.scss" as mix;
 
 .overview {
-  padding: 3.2rem 4rem;
-  max-width: 144rem;
-  margin: 0 auto;
-
-  // margin-left: 30rem;
-  width: 100%;
+  @include mix.page-style();
 
   .heading {
     @include mix.textPreset(1);
@@ -108,14 +103,8 @@
         grid-row: 2/3;
       }
 
-      .budgets {
-      }
-
       .transactions {
         grid-row: 3/4;
-      }
-
-      .bills {
       }
     }
   }
