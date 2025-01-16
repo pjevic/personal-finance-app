@@ -8,7 +8,8 @@ import TransactionItem from "@/feature/overview/TransactionItem";
 import BillInfo from "@/feature/overview/BillInfo";
 
 import { getRecurringBills } from "@/utils/helpers";
-import { balance, pots, budgets, transactions } from "../data/data.json";
+import data from "../data/data.json";
+const { balance, transactions, budgets, pots } = data;
 
 import style from "./page.module.scss";
 
