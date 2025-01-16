@@ -1,6 +1,7 @@
 /** @format */
 
 import Table from "@/components/Table/Table";
+import TableOperations from "@/components/Table/TableOperations";
 import style from "./page.module.scss";
 import data from "../../data/data.json";
 const { transactions } = data;
@@ -10,7 +11,8 @@ function Page() {
     <div className={style.transactions}>
       <h1 className={style.transactions__heading}>Transactions</h1>
 
-      <Table data={transactions} className={style.table}>
+      <TableOperations />
+      <Table data={transactions}>
         <Table.Header
           columns={[
             "Recipient / Sender",
@@ -18,7 +20,6 @@ function Page() {
             "Transaction Date",
             "Amount",
           ]}
-          className={style.table__header}
         />
         <Table.Body rows={transactions} />
       </Table>

@@ -7,27 +7,33 @@
   width: 100%;
   background-color: var.$color-white;
 
-  &__header {
+  &__header,
+  &__row {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 2fr;
     gap: 3.2rem;
-    padding: 0 1.6rem;
+    padding: 1.6rem 1.6rem;
   }
 
-  &__headerCell {
-    @include mix.textPreset(5);
-    color: var.$color-gray-500;
+  &__header {
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var.$color-gray-100;
+    margin-bottom: 2.4rem;
 
-    &:last-child {
-      text-align: end;
+    &Cell {
+      @include mix.textPreset(5);
+      color: var.$color-gray-500;
+
+      &:last-child {
+        text-align: end;
+      }
     }
   }
 
-  &__body {
-  }
-
   &__row {
-    padding: 1.6rem 1.6rem;
+    &:not(:last-child) {
+      border-bottom: 1px solid var.$color-gray-100;
+    }
 
     &:first-child {
       padding-top: 0;
@@ -36,20 +42,11 @@
     &:last-child {
       padding-bottom: 0;
     }
-
-    &:not(:last-child) {
-      border-bottom: 1px solid var.$color-gray-100;
-    }
-
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr 2fr;
-    gap: 3.2rem;
   }
 
   &__cell {
     display: flex;
     align-items: center;
-
     @include mix.textPreset(5);
     color: var.$color-gray-500;
 
@@ -72,13 +69,13 @@
     @include mix.textPreset(4, bold);
     align-self: center;
     justify-self: end;
-  }
 
-  .positiveAmount {
-    color: var.$color-secondary-green;
-  }
+    &.positiveAmount {
+      color: var.$color-secondary-green;
+    }
 
-  .negativeAmount {
-    color: var.$color-gray-900;
+    &.negativeAmount {
+      color: var.$color-gray-900;
+    }
   }
 }
